@@ -11,8 +11,8 @@ import java.util.ArrayList;
 /**
  * This class contains tests for LibraryGeneric.
  * 
- * @author Erin Parker and ??
- * @version September 2, 2020
+ * @author Erin Parker , Jonathan
+ * @version September 5, 2020
  */
 public class LibraryGenericTester {
 	
