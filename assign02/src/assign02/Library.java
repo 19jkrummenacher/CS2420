@@ -114,8 +114,8 @@ public class Library {
 	 * @param isbn - ISBN of the book to be looked up
 	 */
 	public String lookup(long isbn) {
-		// FILL IN -- do not return null unless appropriate
-		return null;
+		
+		return "";
 	}
 
 	/**
@@ -127,6 +127,7 @@ public class Library {
 	 */
 	public ArrayList<LibraryBook> lookup(String holder) {
 		// FILL IN -- do not return null
+		
 		return null;
 	}
 
