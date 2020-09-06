@@ -24,7 +24,7 @@ public class LibraryBook extends Book
 	private boolean getCheckedOut()
 	{
 		GregorianCalendar checkout = new GregorianCalendar();
-	
+	int y = checkout.getWeekYear()
 		return checkedOut;
 	}
 	
@@ -55,4 +55,5 @@ public class LibraryBook extends Book
 	{
 		return dueDate; 
 	}
+	
 }
