@@ -71,11 +71,8 @@ public class Book {
 		Book otherBook = (Book) other;
 
 		if (otherBook.getIsbn() == this.getIsbn() && otherBook.getAuthor().equals(this.getAuthor())
-				&& otherBook.getTitle().equals(this.getTitle()))
-		{
+				&& otherBook.getTitle().equals(this.getTitle()))		
 			return true;
-		}
-
 		return false;
 	}
 
