@@ -23,6 +23,8 @@ public class LibraryBook extends Book
 	 */
 	private boolean getCheckedOut()
 	{
+		GregorianCalendar checkout = new GregorianCalendar();
+	
 		return checkedOut;
 	}
 	
