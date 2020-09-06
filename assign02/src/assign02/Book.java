@@ -64,18 +64,16 @@ public class Book {
 	 */
 	public boolean equals(Object other) 
 	{
-		if(!(other instanceof Book))
-		{
+		if (!(other instanceof Book)) {
 			return false;
 		}
-		
-		Book otherBook = (Book)other;
-		
-		if(otherBook.getIsbn() == this.getIsbn() && otherBook.getAuthor().equals(this.getAuthor()) && otherBook.getTitle().equals(this.getTitle()))
-		{
+
+		Book otherBook = (Book) other;
+
+		if (otherBook.getIsbn() == this.getIsbn() && otherBook.getAuthor().equals(this.getAuthor())
+				&& otherBook.getTitle().equals(this.getTitle()))
 			return true;
-		}
-		
+
 		return false;
 	}
 
