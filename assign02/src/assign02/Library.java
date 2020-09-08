@@ -1,6 +1,7 @@
 package assign02;
 
 import java.io.File;
+import java.util.GregorianCalendar;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -115,8 +116,14 @@ public class Library {
 	 */
 	public String lookup(long isbn) {
 		
-	    
-		return "";
+		for(LibraryBook s : library)
+		{
+			if(s.getIsbn() == isbn)
+			{
+				return s.getHolder();
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -127,9 +134,17 @@ public class Library {
 	 * @param holder - holder whose checked out books are returned
 	 */
 	public ArrayList<LibraryBook> lookup(String holder) {
-		// FILL IN -- do not return null
-	library
-		return null;
+		ArrayList<LibraryBook> tempBook = new ArrayList<LibraryBook>();
+		
+		for(LibraryBook s : library)
+		{
+			if(s.getHolder().equals(holder))
+			{	
+				tempBook.add(s);
+			}
+		}		
+		
+		return tempBook;
 	}
 
 	/**
@@ -149,8 +164,25 @@ public class Library {
 	 * @param year - year of the new due date of the library book
 	 * 
 	 */
-	public boolean checkout(long isbn, String holder, int month, int day, int year) {
-		// FILL IN -- do not return false unless appropriate
+	public boolean checkout(long isbn, String holder, int month, int day, int year) 
+	{
+			
+		for(LibraryBook tempBook : library)
+		{
+			if(tempBook.getIsbn() == isbn)
+			{				
+				if(tempBook.isCheckedOut())
+				{
+					return false;
+				}
+				else
+				{
+					tempBook.checkOut(new GregorianCalendar(year, month, day), holder);
+					return true;
+				}
+			}
+		}
+		
 		return false;
 	}
 
@@ -166,7 +198,8 @@ public class Library {
 	 * @param isbn - ISBN of the library book to be checked in
 	 */
 	public boolean checkin(long isbn) {
-		// FILL IN -- do not return false unless appropriate
+		
+		
 		return false;
 	}
 
@@ -182,6 +215,7 @@ public class Library {
 	 */
 	public boolean checkin(String holder) {
 		// FILL IN -- do not return false unless appropriate
-		return false;
+		
+		return true;
 	}
 }

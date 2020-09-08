@@ -8,24 +8,33 @@ import java.util.GregorianCalendar;
  *
  */
 public class LibraryBook extends Book {
+	
 	private String holder;
 	private GregorianCalendar dueDate;
+	private boolean isCheckedOut;
 
 	public LibraryBook(long isbn, String author, String title) {
 		super(isbn, author, title);
 		this.dueDate = null;
+		this.isCheckedOut = false;
 	}
 
+	public boolean isCheckedOut()
+	{
+		return isCheckedOut;
+	}
+	
 	/**
 	 * This reports whether the librarybook object is checked in or out.
 	 * 
-	 * @param g
+	 * @param calendar
 	 * @param passHolder
 	 * 
 	 */
-	public void checkOut(GregorainCalendar g, String passHolder) {
-		this.checkedOut = g;
+	public void checkOut(GregorianCalendar calendar, String passHolder) {
+		this.dueDate = calendar;
 		this.holder = passHolder;
+		this.isCheckedOut = true;
 	}
 
 	/**
@@ -33,9 +42,9 @@ public class LibraryBook extends Book {
 	 * checkedOut to false.
 	 */
 	public void checkIn() {
-		this.checkedOut = false;
 		this.dueDate = null;
 		this.holder = null;
+		this.isCheckedOut = false;
 	}
 
 	/**
@@ -45,5 +54,10 @@ public class LibraryBook extends Book {
 	 */
 	public String getHolder() {
 		return holder;
+	}
+	
+	public GregorianCalendar getDueDate()
+	{
+		return dueDate;
 	}
 }
