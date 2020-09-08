@@ -199,6 +199,21 @@ public class Library {
 	 */
 	public boolean checkin(long isbn) {
 		
+		for(LibraryBook tempBook : library)
+		{
+			if(tempBook.getIsbn()== isbn)
+			{				
+				if(!tempBook.isCheckedOut())
+				{
+					return false;
+				}
+				else
+				{
+					tempBook.checkIn();
+					return true;
+				}
+			}
+		}
 		
 		return false;
 	}
@@ -215,7 +230,21 @@ public class Library {
 	 */
 	public boolean checkin(String holder) {
 		// FILL IN -- do not return false unless appropriate
-		
-		return true;
+		for(LibraryBook tempBook : library)
+		{
+			if(tempBook.getHolder.equals(holder))
+			{				
+				if(!tempBook.isCheckedOut())
+				{
+					return false;
+				}
+				else
+				{
+					tempBook.checkIn();
+					return true;
+				}
+			}
+		}
+		return false;	
 	}
 }
