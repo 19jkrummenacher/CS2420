@@ -7,13 +7,13 @@ import java.util.GregorianCalendar;
  * @author Jonathan and Pratyush
  *
  */
-public class LibraryBook extends Book {
+public class LibraryBookGeneric<Type> extends Book {
 	
 	private String holder;
 	private GregorianCalendar dueDate;
 	private boolean isCheckedOut;
 
-	public LibraryBook(long isbn, String author, String title) {
+	public LibraryBookGeneric(long isbn, String author, String title) {
 		super(isbn, author, title);
 		this.dueDate = null;
 		this.isCheckedOut = false;

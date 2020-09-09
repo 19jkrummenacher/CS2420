@@ -4,7 +4,7 @@ package assign02;
  * This class represents a book, in which the ISBN, author, and title cannot
  * change once the book is created.  Note that ISBNs are unique.
  * 
- * @author Erin Parker, Jonathan, Pratyush
+ * @author Erin Parker, Jonathan, and Pratyush
  * @version September 5, 2020
  */
 public class Book {

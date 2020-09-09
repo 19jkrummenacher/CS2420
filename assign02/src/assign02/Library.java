@@ -138,7 +138,7 @@ public class Library {
 		
 		for(LibraryBook s : library)
 		{
-			if(s.getHolder().equals(holder))
+			if(holder.equals(s.getHolder()))
 			{	
 				tempBook.add(s);
 			}
@@ -229,10 +229,10 @@ public class Library {
 	 * @param holder - holder of the library books to be checked in
 	 */
 	public boolean checkin(String holder) {
-		// FILL IN -- do not return false unless appropriate
+
 		for(LibraryBook tempBook : library)
 		{
-			if(tempBook.getHolder.equals(holder))
+			if(holder.equals(tempBook.getHolder()))
 			{				
 				if(!tempBook.isCheckedOut())
 				{
