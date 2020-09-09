@@ -18,6 +18,7 @@ public class LibraryGenericTester {
 	
 	private LibraryGeneric<String> nameLib;  // library that uses names to identify patrons (holders)
 	private LibraryGeneric<PhoneNumber> phoneLib;  // library that uses phone numbers to identify patrons
+	private LibraryGeneric<Integer> intLib; //IDK what I am doing;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -29,7 +30,9 @@ public class LibraryGenericTester {
 		phoneLib = new LibraryGeneric<PhoneNumber>();
 		phoneLib.add(9780374292799L, "Thomas L. Friedman", "The World is Flat");
 		phoneLib.add(9780330351690L, "Jon Krakauer", "Into the Wild");
-		phoneLib.add(9780446580342L, "David Baldacci", "Simple Genius");		
+		phoneLib.add(9780446580342L, "David Baldacci", "Simple Genius");	
+		
+		intLib.addAll("src/assign02/Mushroom_Publishing.txt");
 	}
 	
 	@Test
