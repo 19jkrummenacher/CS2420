@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
  */
 public class LibraryBookGeneric<Type> extends Book {
 	
-	private String holder;
+	private Type holder;
 	private GregorianCalendar dueDate;
 	private boolean isCheckedOut;
 
@@ -25,13 +25,13 @@ public class LibraryBookGeneric<Type> extends Book {
 	}
 	
 	/**
-	 * This reports whether the librarybook object is checked in or out.
+	 * This reports whether the libraryBookGeneric object is checked in or out.
 	 * 
 	 * @param calendar
 	 * @param passHolder
 	 * 
 	 */
-	public void checkOut(GregorianCalendar calendar, String passHolder) {
+	public void checkOut(GregorianCalendar calendar, Type passHolder) {
 		this.dueDate = calendar;
 		this.holder = passHolder;
 		this.isCheckedOut = true;
@@ -52,7 +52,7 @@ public class LibraryBookGeneric<Type> extends Book {
 	 * 
 	 * @return String
 	 */
-	public String getHolder() {
+	public Type getHolder() {
 		return this.holder;
 	}
 	

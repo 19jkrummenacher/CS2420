@@ -94,4 +94,35 @@ public class LibraryTester {
 	public void testSmallLibraryCheckinHolder() {
 		assertFalse(smallLib.checkin("Jane Doe"));
 	}
+	@Test
+	public void testMediumLibraryLookupISBN() {
+		assertNull(mediumLib.lookup(9780330351690L));
+	}
+	
+	@Test
+	public void testMediumLibraryLookupHolder() {
+		mediumLib.checkout(9780330351690L, "Jane Doe", 1, 1, 2008);
+		ArrayList<LibraryBook> booksCheckedOut = mediumLib.lookup("Jane Doe");
+		
+		assertNotNull(booksCheckedOut);
+		assertEquals(1, booksCheckedOut.size());
+		assertEquals(new Book(9780330351690L, "Jon Krakauer", "Into the Wild"), booksCheckedOut.get(0));
+		assertEquals("Jane Doe", booksCheckedOut.get(0).getHolder());
+	}
+
+	@Test
+	public void testMediumLibraryCheckout() {
+		assertTrue(mediumLib.checkout(9780330351690L, "Jane Doe", 1, 1, 2008));
+	}
+
+	@Test
+	public void testMediumLibraryCheckinISBN() {
+		mediumLib.checkout(9780330351690L, "Jane Doe", 1, 1, 2008);
+		assertTrue(mediumLib.checkin(9780330351690L));
+	}
+
+	@Test
+	public void testMediumLibraryCheckinHolder() {
+		assertFalse(mediumLib.checkin("Jane Doe"));
+	}
 }
