@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -270,17 +271,35 @@ public class LibraryGeneric<Type> {
 	 * If no library books are overdue, returns an empty list.
 	 */
 	public ArrayList<LibraryBookGeneric<Type>> getOverdueList(int month, int day, int year) {
-		// FILL IN -- do not return null
-		return null;
+		ArrayList<LibraryBookGeneric<Type>> libraryCopy = new ArrayList<LibraryBookGeneric<Type>>();
+		libraryCopy.addAll(library);
+		ArrayList<LibraryBookGeneric<Type>> tempLib = new ArrayList<LibraryBookGeneric<Type>>();
+		
+		OrderByDueDate comparator = new OrderByDueDate();
+		
+		for(LibraryBookGeneric<Type> s : libraryCopy)
+		{
+			if(s.getDueDate().before(new GregorianCalendar(year, month, day)))
+				tempLib.add(s);
+		}
+
+		sort(tempLib, comparator);
+
+		return libraryCopy;
 	}
 
 	/**
 	 * Returns the list of library books, sorted by title
 	 */
 	public ArrayList<LibraryBookGeneric<Type>> getOrderedByTitle() {
-		// FILL IN -- do not return null
-		// (Optional: Try using a lambda expression here instead of creating a new OrderByTitle class.)
-		return null;
+		ArrayList<LibraryBookGeneric<Type>> libraryCopy = new ArrayList<LibraryBookGeneric<Type>>();
+		libraryCopy.addAll(library);
+
+		OrderByTitle comparator = new OrderByTitle();
+
+		sort(libraryCopy, comparator);
+
+		return libraryCopy;
 	}
 
 	/**
@@ -324,6 +343,16 @@ public class LibraryGeneric<Type> {
 	 */
 	protected class OrderByDueDate implements Comparator<LibraryBookGeneric<Type>> {
 		
-		public int compare()
+		public int compare(LibraryBookGeneric<Type> lhs, LibraryBookGeneric<Type> rhs) {
+			return (lhs.getDueDate().before(rhs.getDueDate()) ? 1 : rhs.getDueDate().before(lhs.getDueDate()) ? -1 : 0);
+		}
 	}
+	
+	protected class OrderByTitle implements Comparator<LibraryBookGeneric<Type>> {
+		
+		public int compare(LibraryBookGeneric<Type> lhs, LibraryBookGeneric<Type> rhs) {
+			return (lhs.getTitle().charAt(0)  < rhs.getTitle().charAt(0)? 1 : lhs.getTitle().charAt(0) > rhs.getTitle().charAt(0) ? -1 : 0);
+		}
+	}
+	
 }
