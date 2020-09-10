@@ -2,12 +2,13 @@ package assign02;
 
 /**
  * This class represents a book, in which the ISBN, author, and title cannot
- * change once the book is created.  Note that ISBNs are unique.
+ * change once the book is created. Note that ISBNs are unique.
  * 
  * @author Erin Parker, Jonathan, and Pratyush
  * @version September 5, 2020
  */
-public class Book {
+public class Book
+{
 
 	private long isbn;
 
@@ -22,7 +23,8 @@ public class Book {
 	 * @param author
 	 * @param title
 	 */
-	public Book(long isbn, String author, String title) {
+	public Book(long isbn, String author, String title)
+	{
 		this.isbn = isbn;
 		this.author = author;
 		this.title = title;
@@ -33,7 +35,8 @@ public class Book {
 	 * 
 	 * @return the author
 	 */
-	public String getAuthor() {
+	public String getAuthor()
+	{
 		return this.author;
 	}
 
@@ -42,7 +45,8 @@ public class Book {
 	 * 
 	 * @return the ISBN
 	 */
-	public long getIsbn() {
+	public long getIsbn()
+	{
 		return this.isbn;
 	}
 
@@ -51,26 +55,29 @@ public class Book {
 	 * 
 	 * @return the title
 	 */
-	public String getTitle() {
+	public String getTitle()
+	{
 		return this.title;
 	}
 
 	/**
-	 * Two books are considered equal if they have the same ISBN, author, and
-	 * title.
+	 * Two books are considered equal if they have the same ISBN, author, and title.
 	 * 
 	 * @param other - the object begin compared with this book
-	 * @return true if other object is a Book type and is equal to this book, false otherwise
+	 * @return true if other object is a Book type and is equal to this book, false
+	 *         otherwise
 	 */
-	public boolean equals(Object other) 
+	public boolean equals(Object other)
 	{
-		if (!(other instanceof Book)) {
+		if (!(other instanceof Book))
+		{
 			return false;
 		}
 
 		Book otherBook = (Book) other;
 
-		if (otherBook.getIsbn() == this.getIsbn() && otherBook.getAuthor().equals(this.getAuthor())&& otherBook.getTitle().equals(this.getTitle()))
+		if (otherBook.getIsbn() == this.getIsbn() && otherBook.getAuthor().equals(this.getAuthor())
+				&& otherBook.getTitle().equals(this.getTitle()))
 		{
 			return true;
 		}
@@ -80,7 +87,8 @@ public class Book {
 	/**
 	 * Returns a textual representation of this book.
 	 */
-	public String toString() {
+	public String toString()
+	{
 		return isbn + ", " + author + ", \"" + title + "\"";
 	}
 }

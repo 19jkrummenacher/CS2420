@@ -6,7 +6,8 @@ package assign02;
  * @author Erin Parker
  * @version September 2, 2020
  */
-public class PhoneNumber {
+public class PhoneNumber
+{
 
 	private String areaCode;
 
@@ -19,38 +20,43 @@ public class PhoneNumber {
 	 * 
 	 * @param phoneNum - the given string
 	 */
-	public PhoneNumber(String phoneNum) {
+	public PhoneNumber(String phoneNum)
+	{
 		phoneNum = phoneNum.replaceAll("-|\\s|\\.|\\(|\\)", "");
 
 		boolean isValid = true;
-		if(phoneNum.length() != 10)
+		if (phoneNum.length() != 10)
 			isValid = false;
-		for(int i = 0; isValid && i < 10; i++)
-			if(!Character.isDigit(phoneNum.charAt(i)))
+		for (int i = 0; isValid && i < 10; i++)
+			if (!Character.isDigit(phoneNum.charAt(i)))
 				isValid = false;
 
-		if(isValid) {
+		if (isValid)
+		{
 			areaCode = phoneNum.substring(0, 3);
 			trunk = phoneNum.substring(3, 6);
 			rest = phoneNum.substring(6, 10);
-		}
-		else {
+		} else
+		{
 			areaCode = "000";
 			trunk = "000";
 			rest = "000";
-			System.err.println("Phone number \"" + phoneNum + "\" is not formatted correctly, initializing as " + toString()
-					+ ".");
+			System.err.println("Phone number \"" + phoneNum + "\" is not formatted correctly, initializing as "
+					+ toString() + ".");
 		}
 	}
 
 	/**
-	 * Two phone numbers are considered equal if they have the same area code, trunk, and remaining numbers.
+	 * Two phone numbers are considered equal if they have the same area code,
+	 * trunk, and remaining numbers.
 	 * 
 	 * @param other - the object begin compared with this phone number
-	 * @return true if other object is a PhoneNumer type and is equal to this phone number, false otherwise
+	 * @return true if other object is a PhoneNumer type and is equal to this phone
+	 *         number, false otherwise
 	 */
-	public boolean equals(Object other) {
-		if(!(other instanceof PhoneNumber))
+	public boolean equals(Object other)
+	{
+		if (!(other instanceof PhoneNumber))
 			return false;
 
 		PhoneNumber rhs = (PhoneNumber) other;
@@ -62,7 +68,8 @@ public class PhoneNumber {
 	/**
 	 * Returns a textual representation of this phone number.
 	 */
-	public String toString() {
+	public String toString()
+	{
 		return "(" + areaCode + ") " + trunk + "-" + rest;
 	}
 }
