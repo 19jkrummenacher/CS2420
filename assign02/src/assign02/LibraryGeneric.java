@@ -373,8 +373,16 @@ public class LibraryGeneric<Type>
 		 */
 		public int compare(LibraryBookGeneric<Type> lhs, LibraryBookGeneric<Type> rhs)
 		{
-			return (lhs.getTitle().charAt(0) > rhs.getTitle().charAt(0) ? 1
-					: lhs.getTitle().charAt(0) < rhs.getTitle().charAt(0) ? -1 : 0);
+			for(int i = 0; i<(lhs.getTitle().length() > rhs.getTitle().length() ? rhs.getTitle().length() : lhs.getTitle().length()); i++)
+			{
+				if(lhs.getTitle().charAt(i) != rhs.getTitle().charAt(i))
+				{
+					return (lhs.getTitle().charAt(i) > rhs.getTitle().charAt(i) ? 1
+							: lhs.getTitle().charAt(i) < rhs.getTitle().charAt(i) ? -1 : 0);
+				}
+			}
+			
+			return 0;
 		}
 	}
 

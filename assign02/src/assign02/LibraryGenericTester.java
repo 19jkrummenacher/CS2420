@@ -49,6 +49,131 @@ public class LibraryGenericTester
 		charLib = new LibraryGeneric<Character>();
 		charLib.addAll("src/assign02/Mushroom_Publishing.txt");
 	}
+	
+	/**
+	 * testing char library's inventoryList method
+	 */
+	@Test
+	public void charLibGetInventoryList()
+	{
+		Character patron = 'a';
+		
+		ArrayList<LibraryBookGeneric<Character>> sortedLib = new ArrayList<LibraryBookGeneric<Character>>();
+		
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190004L, "Moyra Caldecott", "Weapons of the Wolfhound"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190011L, "Moyra Caldecott", "The Eye of Callanish"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190028L, "Moyra Caldecott", "Crystal Legends"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190042L, "Martyn Folkes", "Bath City Centre Street Map and Guide"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190073L, "Jen Alexander", "The Coming of the Third"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190110L, "David Meade Betts", "Breaking the Gaze"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190349L, "Esme Ellis", "Pathway Into Sunrise"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190363L, "Emma Lorant", "Cloner"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190394L, "Kate Clarke", "The Royal United Hospital"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190400L, "Jean Fanelli", "The War Comes to Witham Street"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190479L, "Anthony J D Burns", "Demogorgon Rising"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190516L, "Daniel Wyatt", "The Fuehrermaster"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190677L, "Cheryl Jones", "Herbs for Healthy Skin"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190769L, "Roger Taylor", "The Call of the Sword"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190875L, "Renee Angers", "Ice and a Curious Man"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190936L, "Carol E. Meacham", "Machina Obscura"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190998L, "Helen K Barker", "Iceni"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843191230L, "Mary Lancaster", "An Endless Exile"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192022L, "Roger Taylor", "Whistler"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192039L, "William Fitzmaurice", "Operation: Sergeant York"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192701L, "Moyra Caldecott", "The Lily and the Bull"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192954L, "Dennis Radha-Rose", "The Anxiety Relief Program"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843193319L, "Alan Burt Akers", "Transit to Scorpio"));
+
+		assertEquals(sortedLib, charLib.getInventoryList());
+	}
+
+	/**
+	 * testing char library's overdueList method
+	 */
+	@Test
+	public void charLibGetOverdueList()
+	{
+		Character patron = 'a';
+		
+		charLib.checkout(9781843192954L, patron, 1, 1, 2000);
+		charLib.checkout(9781843193319L, patron, 1, 1, 2001);
+		charLib.checkout(9781843190004L, patron, 1, 1, 2002);
+		charLib.checkout(9781843190011L, patron, 1, 1, 2003);
+		charLib.checkout(9781843190028L, patron, 1, 1, 2004);
+		charLib.checkout(9781843190042L, patron, 1, 1, 2005);
+		charLib.checkout(9781843190073L, patron, 1, 1, 2007);
+		charLib.checkout(9781843190110L, patron, 1, 1, 2008);
+		charLib.checkout(9781843190349L, patron, 1, 1, 2009);
+		charLib.checkout(9781843190363L, patron, 1, 1, 2010);
+		charLib.checkout(9781843190394L, patron, 1, 1, 2011);
+		charLib.checkout(9781843190400L, patron, 1, 1, 2012);
+		charLib.checkout(9781843190479L, patron, 1, 1, 2013);
+		charLib.checkout(9781843190516L, patron, 1, 1, 2014);
+		charLib.checkout(9781843190677L, patron, 1, 1, 2015);
+		charLib.checkout(9781843190769L, patron, 1, 1, 2016);
+		charLib.checkout(9781843190875L, patron, 1, 1, 2017);
+		charLib.checkout(9781843190936L, patron, 1, 1, 2018);
+		charLib.checkout(9781843190998L, patron, 1, 1, 2019);
+		charLib.checkout(9781843191230L, patron, 1, 1, 2020);
+		charLib.checkout(9781843192022L, patron, 1, 1, 2021);
+		charLib.checkout(9781843192039L, patron, 1, 1, 2022);
+		charLib.checkout(9781843192701L, patron, 1, 1, 2023);
+		
+		ArrayList<LibraryBookGeneric<Character>> sortedLib = new ArrayList<LibraryBookGeneric<Character>>();
+		
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192954L, "Dennis Radha-Rose", "The Anxiety Relief Program"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843193319L, "Alan Burt Akers", "Transit to Scorpio"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190004L, "Moyra Caldecott", "Weapons of the Wolfhound"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190011L, "Moyra Caldecott", "The Eye of Callanish"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190028L, "Moyra Caldecott", "Crystal Legends"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190042L, "Martyn Folkes", "Bath City Centre Street Map and Guide"));
+		
+		sortedLib.get(0).checkOut(new GregorianCalendar(2000, 1, 1), patron);
+		sortedLib.get(1).checkOut(new GregorianCalendar(2001, 1, 1), patron);
+		sortedLib.get(2).checkOut(new GregorianCalendar(2002, 1, 1), patron);
+		sortedLib.get(3).checkOut(new GregorianCalendar(2003, 1, 1), patron);
+		sortedLib.get(4).checkOut(new GregorianCalendar(2004, 1, 1), patron);
+		sortedLib.get(5).checkOut(new GregorianCalendar(2005, 1, 1), patron);
+
+		assertEquals(sortedLib, charLib.getOverdueList(9, 21, 2006));
+	}
+
+	/**
+	 * testing char's Library's getOverDueList method
+	 */
+	@Test
+	public void charLibGetOrderedByTitle()
+	{
+		Character patron = 'a';
+		
+		ArrayList<LibraryBookGeneric<Character>> sortedLib = new ArrayList<LibraryBookGeneric<Character>>();
+		
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843191230L, "Mary Lancaster", "An Endless Exile"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190042L, "Martyn Folkes", "Bath City Centre Street Map and Guide"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190110L, "David Meade Betts", "Breaking the Gaze"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190363L, "Emma Lorant", "Cloner"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190028L, "Moyra Caldecott", "Crystal Legends"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190479L, "Anthony J D Burns", "Demogorgon Rising"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190677L, "Cheryl Jones", "Herbs for Healthy Skin"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190875L, "Renee Angers", "Ice and a Curious Man"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190998L, "Helen K Barker", "Iceni"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190936L, "Carol E. Meacham", "Machina Obscura"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192039L, "William Fitzmaurice", "Operation: Sergeant York"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190349L, "Esme Ellis", "Pathway Into Sunrise"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192954L, "Dennis Radha-Rose", "The Anxiety Relief Program"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190769L, "Roger Taylor", "The Call of the Sword"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190073L, "Jen Alexander", "The Coming of the Third"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190011L, "Moyra Caldecott", "The Eye of Callanish"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190516L, "Daniel Wyatt", "The Fuehrermaster"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192701L, "Moyra Caldecott", "The Lily and the Bull"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190394L, "Kate Clarke", "The Royal United Hospital"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190400L, "Jean Fanelli", "The War Comes to Witham Street"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843193319L, "Alan Burt Akers", "Transit to Scorpio"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843190004L, "Moyra Caldecott", "Weapons of the Wolfhound"));
+		sortedLib.add(new LibraryBookGeneric<Character>(9781843192022L, "Roger Taylor", "Whistler"));
+
+		assertEquals(sortedLib, charLib.getOrderedByTitle());
+	}
 
 	/**
 	 * this tests when the due dates are not over due, and needs to return an empty
